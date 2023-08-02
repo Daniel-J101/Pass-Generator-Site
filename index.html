@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student ID Request Form</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="manifest" href="icons/site.webmanifest">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <form id="apiRequestForm">
+    <h1>Strake Jesuit Student ID Request</h1>
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br>
+    <label for="email">Email:</label><br>
+    <input type="text" id="email" name="email" required><br>
+    <label for="gradeLevel">Grade Level (9-12):</label><br>
+    <input type="number" id="gradeLevel" name="gradeLevel" required><br>
+    <label for="graduationYear">Graduation Year:</label><br>
+    <input type="number" id="graduationYear" name="graduationYear" required><br>
+    <label for="advisory">Advisory:</label><br>
+    <input type="text" id="advisory" name="advisory" required><br>
+    <label for="studentID">Student ID:</label><br>
+    <input type="number" id="studentID" name="studentID" required><br>
+    <label for="schoolYear">School Year (ex: 2023-2024):</label><br>
+    <input type="text" id="schoolYear" name="schoolYear" required><br>
+    <label for="barcodeData">Barcode Data:</label><br>
+    <input type="text" id="barcodeData" name="barcodeData" required><br>
+    <label for="imageURL">Image URL:</label><br>
+    <input type="text" id="imageURL" name="imageURL" required><br>
+    <input id="submitButton" type="submit" value="Create and Send ID card">
+    <div id="response"></div>
+  </form>
+
+  <script src="form.js"></script>
+</body>
+</html>
