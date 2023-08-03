@@ -24,7 +24,7 @@ form.addEventListener("submit", async function (event) {
   // Send API request
   try {
     const response = await fetch(
-      "http://127.0.0.1:5001/pass-generator-8558c/us-central1/pass",
+      "https://us-central1-pass-generator-8558c.cloudfunctions.net/pass",
       {
         method: "POST",
         headers: {
