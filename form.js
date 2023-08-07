@@ -3,10 +3,17 @@ const submitButton = document.getElementById("submitButton");
 const serverMessageElement = document.getElementById("response");
 
 form.addEventListener("submit", async function (event) {
+  //versioning debug
+  console.log("V0.0.4");
   // Prevent the form from being submitted the traditional way
   event.preventDefault();
 
   submitButton.value = "Loading...";
+
+  //convert image to base64
+  const fileInput = document.getElementById("imageUpload");
+  const file = fileInput.files[0];
+  const base64String = await convertToBase64(file);
 
   // Getting form data
   const data = {
@@ -18,7 +25,8 @@ form.addEventListener("submit", async function (event) {
     studentID: document.getElementById("studentID").value,
     schoolYear: document.getElementById("schoolYear").value,
     barcodeData: document.getElementById("barcodeData").value,
-    imageURL: document.getElementById("imageURL").value,
+    // imageURL: document.getElementById("imageURL").value, //can be an image link or a base64 encoded image
+    imageURL: base64String,
   };
 
   // Send API request
@@ -53,3 +61,20 @@ form.addEventListener("submit", async function (event) {
     submitButton.value = "Send Request"; // Change the button text back to "Send Request"
   }
 });
+
+// convert file to base64
+function convertToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onloadend = function () {
+      resolve(reader.result.replace("data:", "").replace(/^.+,/, ""));
+    };
+
+    reader.onerror = function () {
+      reject(new Error("Error converting to base64"));
+    };
+
+    reader.readAsDataURL(file);
+  });
+}
