@@ -6,6 +6,8 @@ form.addEventListener("submit", async function (event) {
   // Prevent the form from being submitted the traditional way
   event.preventDefault();
 
+  console.log("form file 1.4");
+
   submitButton.value = "Loading...";
 
   // Getting form data
